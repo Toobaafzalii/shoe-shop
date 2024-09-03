@@ -58,7 +58,7 @@ function renderPage() {
     text.className =
       "text-[32px] font-semibold leading-10 flex justify-center items-center text-center mt-8 px-6";
     img.src = item.imgSrc;
-    img.className = "w-full";
+    img.className = "w-full max-h-[550px]";
     div.className = "swiper-slide";
     div.append(img);
     div.append(text);
