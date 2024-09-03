@@ -1,4 +1,4 @@
-import { DOMAIN_URL } from "../utils/constants";
+import {} from "../utils/constants";
 import { api } from "./axios";
 import { PATHS } from "./paths";
 

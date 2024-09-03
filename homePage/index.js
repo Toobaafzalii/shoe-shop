@@ -4,7 +4,7 @@ import {
   getUserInfoApi,
 } from "../api/services";
 import "../style.css";
-import { DOMAIN_URL } from "../utils/constants";
+import {} from "../utils/constants";
 import { navigateTo } from "../utils/navigation";
 import { deleteUSerToken } from "../utils/userManager";
 

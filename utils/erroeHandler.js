@@ -1,4 +1,4 @@
-import { DOMAIN_URL } from "./constants";
+import {} from "./constants";
 import { showToast } from "./toast";
 import { deleteUSerToken } from "./userManager";
 

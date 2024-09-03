@@ -3,7 +3,7 @@ import { showToast } from "../utils/toast";
 import { signUpApi } from "../api/services";
 import { errorHandler } from "../utils/erroeHandler";
 import { setUserToken } from "../utils/userManager";
-import { DOMAIN_URL } from "../utils/constants";
+import {} from "../utils/constants";
 
 const backIcon = document.getElementById("back-icon");
 const eyeIcon = document.getElementById("eye-icon");

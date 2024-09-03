@@ -2,7 +2,7 @@ import "../style.css";
 import { showToast } from "../utils/toast";
 import { logInApi } from "../api/services";
 import { errorHandler } from "../utils/erroeHandler";
-import { DOMAIN_URL } from "../utils/constants";
+import {} from "../utils/constants";
 import { setUserToken } from "../utils/userManager";
 import { navigateTo } from "../utils/navigation";
 

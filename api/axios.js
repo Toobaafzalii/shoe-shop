@@ -34,7 +34,6 @@ api.interceptors.response.use(
     if (error.response?.status === 403 || error.response?.status === 401) {
       deleteUSerToken();
       navigateTo("logIn");
-      // navigateT(`${DOMAIN_URL}//indx.html`);
     }
     return Promise.reject(error);
   }

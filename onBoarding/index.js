@@ -9,10 +9,9 @@ const swiper = new Swiper(".swiper", {
 
   mousewheel: true,
 });
-console.log(swiper.activeIndex);
 
-const onboardingImg = document.getElementById("onboarding-img");
-const onBoardingText = document.getElementById("onboarding-txt");
+// const onboardingImg = document.getElementById("onboarding-img");
+// const onBoardingText = document.getElementById("onboarding-txt");
 const paginationSection = document.getElementById("onboarding-pagination");
 const onBoardingBtn = document.getElementById("onboarding-btn");
 const swipperWrapper = document.getElementById("swiper-wrapper");
@@ -46,10 +45,6 @@ function renderPagination() {
 }
 
 function renderPage() {
-  // const data = onBoardingData[activeIndex];
-  // onboardingImg.src = data.imgSrc;
-  // onBoardingText.textContent = data.text;
-
   for (let item of onBoardingData) {
     const div = document.createElement("div");
     const img = document.createElement("img");
@@ -58,7 +53,8 @@ function renderPage() {
     text.className =
       "text-[32px] font-semibold leading-10 flex justify-center items-center text-center mt-8 px-6";
     img.src = item.imgSrc;
-    img.className = "w-full max-h-[550px]";
+    img.className = "w-full h-[500px]";
+
     div.className = "swiper-slide";
     div.append(img);
     div.append(text);
@@ -68,25 +64,22 @@ function renderPage() {
 addEventListener("DOMContentLoaded", () => {
   renderPagination();
   renderPage();
+  swiper.on("slideChange", function (e) {
+    renderPagination();
+    if (swiper.activeIndex + 1 == onBoardingData.length) {
+      onBoardingBtn.textContent = "Get Started";
+    } else {
+      onBoardingBtn.textContent = "Next";
+    }
+  });
 });
 
 onBoardingBtn.addEventListener("click", () => changeOnboardingData());
 
 function changeOnboardingData() {
   swiper.slideNext();
-  console.log(swiper.clickedIndex);
   if (swiper.activeIndex + 1 === onBoardingData.length) {
     navigateTo("logIn");
     return;
   }
-  // renderPage();
 }
-
-swiper.on("slideChange", function (e) {
-  renderPagination();
-  if (swiper.activeIndex + 1 == onBoardingData.length) {
-    onBoardingBtn.textContent = "Get Started";
-  } else {
-    onBoardingBtn.textContent = "Next";
-  }
-});
