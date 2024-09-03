@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+    />
+    <title>SHOE SHOP</title>
+  </head>
+  <body class="relative font-inter h-[100vh]">
+    <div
+      class="relative container flex flex-col justify-between items-center max-w-md min-w-80 mx-auto"
+    >
+      <div class="w-full">
+        <img id="product-img" class="h-[400px] w-full" />
+        <img
+          id="back-icon"
+          class="absolute top-5 left-5"
+          src="../public/SVG/arrow-left.svg"
+        />
+      </div>
+      <div
+        id="product-data"
+        class="w-full flex flex-col justify-evenly items-center gap-6 p-4"
+      >
+        <div class="w-full flex justify-between items-center">
+          <span
+            id="product-name"
+            class="text-3xl font-bold text-App-text-black leading-6 truncate"
+            >Product Name</span
+          >
+          <img class="w-7 h-7" src="../public/SVG/heart.svg" />
+        </div>
+        <div
+          class="w-full flex justify-start items-center gap-4 x-6 border-b-2 pb-4 border-App-product"
+        >
+          <div class="bg-App-product rounded-[4px] p-1.5 text-xs">
+            5,371 sold
+          </div>
+          <img class="w-5 h-5" src="../public/SVG/star.svg" />
+          <span class="text-App-text-gray text-sm">4.3 (5,389 reviews)</span>
+        </div>
+        <div>
+          <h2 class="text-lg font-bold">Description</h2>
+          <span class="line-clamp-2 text-gray-600"
+            >Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos magni
+            modi quas quibusdam dolore laudantium quod consequatur minus
+            aliquid. Animi nulla debitis aspernatur cum eligendi maiores vel
+            laborum reiciendis dignissimos!
+          </span>
+        </div>
+        <div
+          class="w-full flex flex-start items-center gap-[40%] text-lg font-bold"
+        >
+          <span>Size</span>
+          <span>Color</span>
+        </div>
+        <div class="w-full flex justify-between gap-6 items-center">
+          <div
+            id="size-section"
+            class="overflow-x-scroll flex justify-start items-center gap-2 pr-4"
+          ></div>
+          <div
+            id="color-section"
+            class="overflow-x-scroll flex flex-nowrap justify-start items-center gap-2"
+          ></div>
+        </div>
+        <div
+          class="w-full flex justify-start items-center text-lg font-bold gap-4 py-4 border-b-2 border-App-product"
+        >
+          <span>Quantity</span>
+          <div
+            class="flex justify-between items-center bg-App-product rounded-full gap-4 py-2 px-3.5"
+          >
+            <img
+              id="minus-count-btn"
+              class="w-9 h-7"
+              src="../public/SVG/minus.svg"
+            />
+            <span id="product-count">0</span>
+            <img
+              id="plus-count-btn"
+              class="w-[18px] h-[16px] mx-2"
+              src="../public/SVG/plus.svg"
+            />
+          </div>
+        </div>
+        <div class="w-full flex justify-between items-center gap-4">
+          <div class="flex flex-col justify-between items-center min-w-[30%]">
+            <span class="text-xs text-App-text-gray">Total price</span>
+            <span id="product-price" class="text-2xl font-bold pl-1"
+              >$0.00</span
+            >
+          </div>
+          <div
+            id="shopping-btn"
+            class="flex justify-center items-center bg-App-black text-white rounded-full flex-1 py-4 gap-2 shadow-md shadow-App-text-gray"
+          >
+            <img class="w-5 h-5" src="../public/SVG/shopping.svg" />
+            <span class="text-nowrap">Add to Cart</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script type="module" src="./index.js"></script>
+  </body>
+</html>
