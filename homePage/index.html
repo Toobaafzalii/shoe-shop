@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+    />
+    <title>SHOE SHOP</title>
+  </head>
+  <body class="relative font-inter h-[100vh]">
+    <div
+      id="homepage-container"
+      class="container flex flex-col justify-between items-center max-w-md min-w-80 mx-auto"
+    >
+      <div class="flex justify-between items-center px-6 py-4 w-full">
+        <div class="flex flex-col justify-between">
+          <div id="greeting-msg" class="text-App-text-gray leading-6">
+            on time
+          </div>
+          <span
+            id="user-name"
+            class="text-App-text-black font-bold leading-6 truncate"
+            >Based on username</span
+          >
+        </div>
+        <div class="flex justify-between items-center py-4 gap-3">
+          <img src="../public/SVG/bell.svg" alt="bell" />
+          <img src="../public/SVG/heart.svg" alt="heart" />
+          <img
+            id="logout-btn"
+            class="w-7 h-8"
+            src="../public/SVG/sign-out.svg"
+            alt="logout"
+          />
+        </div>
+      </div>
+      <div class="mx-5 bg-App-input flex items-center w-[90%] relative">
+        <input
+          id="fake-search-input"
+          class="w-[100%] py-2 px-3 bg-transparent flex justify-start gap-1 rounded-[4px] leading-5 pl-7"
+          type="text"
+          placeholder="Search"
+        />
+        <div class="absolute left-1">
+          <svg
+            width="18"
+            height="19"
+            viewBox="0 0 18 19"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <rect
+              width="18"
+              height="18"
+              transform="translate(0 0.5)"
+              fill="white"
+              fill-opacity="0.01"
+            />
+            <g clip-path="url(#clip0_1_2386)">
+              <path
+                d="M12.7419 11.844C13.7102 10.5227 14.1439 8.88447 13.9562 7.25713C13.7685 5.62979 12.9733 4.13332 11.7297 3.06711C10.486 2.0009 8.88567 1.44358 7.24876 1.50666C5.61184 1.56973 4.05911 2.24854 2.90119 3.40729C1.74327 4.56603 1.06557 6.11926 1.00367 7.75621C0.941768 9.39317 1.50023 10.9931 2.56733 12.236C3.63443 13.4789 5.13147 14.273 6.75894 14.4596C8.38641 14.6461 10.0243 14.2112 11.3449 13.242H11.3439C11.3739 13.282 11.4059 13.32 11.4419 13.357L15.2919 17.207C15.4794 17.3946 15.7338 17.5001 15.9991 17.5002C16.2643 17.5003 16.5188 17.395 16.7064 17.2075C16.8941 17.02 16.9995 16.7656 16.9996 16.5003C16.9997 16.2351 16.8944 15.9806 16.7069 15.793L12.8569 11.943C12.8212 11.9068 12.7827 11.8734 12.7419 11.843V11.844ZM12.9999 7.99998C12.9999 8.72225 12.8577 9.43745 12.5813 10.1047C12.3049 10.772 11.8997 11.3783 11.389 11.8891C10.8783 12.3998 10.272 12.8049 9.60468 13.0813C8.93739 13.3577 8.22219 13.5 7.49992 13.5C6.77765 13.5 6.06245 13.3577 5.39516 13.0813C4.72787 12.8049 4.12156 12.3998 3.61083 11.8891C3.10011 11.3783 2.69498 10.772 2.41858 10.1047C2.14218 9.43745 1.99992 8.72225 1.99992 7.99998C1.99992 6.54129 2.57938 5.14234 3.61083 4.11089C4.64228 3.07944 6.04123 2.49998 7.49992 2.49998C8.95861 2.49998 10.3576 3.07944 11.389 4.11089C12.4205 5.14234 12.9999 6.54129 12.9999 7.99998Z"
+                fill="#6C757D"
+              />
+            </g>
+            <defs>
+              <clipPath id="clip0_1_2386">
+                <rect
+                  width="16"
+                  height="16"
+                  fill="white"
+                  transform="translate(1 1.5)"
+                />
+              </clipPath>
+            </defs>
+          </svg>
+        </div>
+      </div>
+      <div class="flex justify-between items-center w-full px-6 pt-[30px]">
+        <div class="text-xl font-semibold text-App-text-black leading-6">
+          Most Popular
+        </div>
+        <div class="text-base font-semibold text-App-text-black leading-5">
+          See All
+        </div>
+      </div>
+      <div
+        id="fillter-section"
+        class="w-full overflow-x-scroll flex justify-start items-center gap-3 px-6 py-5"
+      ></div>
+      <div
+        id="product-list-section"
+        class="w-full overflow-x-scroll grid grid-cols-2 gap-4 px-5 mb-20"
+      ></div>
+      <button
+        id="load-more-btn"
+        class="font-semibold border-2 border-App-text-gray mb-24 rounded-3xl py-2 px-[20px] text-nowrap text-App-text-gray"
+      >
+        Load More
+      </button>
+      <div
+        class="w-full fixed bg-white bottom-[-1px] flex pb-2.5 pt-3.5 flex-col justify-center items-center"
+      >
+        <div
+          class="w-[100%] text-[10px] font-semibold text-App-text-black flex justify-evenly items-center px-4"
+        >
+          <div class="flex flex-col items-center">
+            <img src="../public/SVG/home.svg" alt="home" />
+            <p>Home</p>
+          </div>
+          <div class="flex flex-col items-center">
+            <img src="../public/SVG/bag.svg" alt="bag" />
+            <p>Cart</p>
+          </div>
+          <div class="flex flex-col items-center">
+            <img src="../public/SVG/cart.svg" alt="cart" />
+            <p>Orders</p>
+          </div>
+          <div class="flex flex-col items-center">
+            <img src="../public/SVG/wallet.svg" alt="wallet" />
+            <p>Wallet</p>
+          </div>
+          <div class="flex flex-col items-center">
+            <img src="../public/SVG/person.svg" alt="profile" />
+            <p>Profile</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      id="search-modal"
+      class="absolute top-0 left-0 w-full h-screen min-h-screen bg-white pt-6 flex-col justify-start items-center hidden"
+    >
+      <div class="w-full flex justify-start items-center">
+        <img
+          id="back-icon"
+          class="w-8 h-8 mx-6"
+          src="../public/SVG/arrow-left.svg"
+          alt="back"
+        />
+      </div>
+      <span class="text-3xl font-bold text-App-text-black leading-6 py-2 px-6"
+        >Search</span
+      >
+      <div class="mx-5 bg-App-input flex items-center w-[90%] relative">
+        <input
+          id="search-input"
+          class="w-[100%] py-2 px-3 bg-transparent flex justify-start gap-1 rounded-[4px] leading-5 pl-7"
+          type="text"
+          placeholder="Search"
+        />
+        <div class="absolute left-1">
+          <svg
+            width="18"
+            height="19"
+            viewBox="0 0 18 19"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <rect
+              width="18"
+              height="18"
+              transform="translate(0 0.5)"
+              fill="white"
+              fill-opacity="0.01"
+            />
+            <g clip-path="url(#clip0_1_2386)">
+              <path
+                d="M12.7419 11.844C13.7102 10.5227 14.1439 8.88447 13.9562 7.25713C13.7685 5.62979 12.9733 4.13332 11.7297 3.06711C10.486 2.0009 8.88567 1.44358 7.24876 1.50666C5.61184 1.56973 4.05911 2.24854 2.90119 3.40729C1.74327 4.56603 1.06557 6.11926 1.00367 7.75621C0.941768 9.39317 1.50023 10.9931 2.56733 12.236C3.63443 13.4789 5.13147 14.273 6.75894 14.4596C8.38641 14.6461 10.0243 14.2112 11.3449 13.242H11.3439C11.3739 13.282 11.4059 13.32 11.4419 13.357L15.2919 17.207C15.4794 17.3946 15.7338 17.5001 15.9991 17.5002C16.2643 17.5003 16.5188 17.395 16.7064 17.2075C16.8941 17.02 16.9995 16.7656 16.9996 16.5003C16.9997 16.2351 16.8944 15.9806 16.7069 15.793L12.8569 11.943C12.8212 11.9068 12.7827 11.8734 12.7419 11.843V11.844ZM12.9999 7.99998C12.9999 8.72225 12.8577 9.43745 12.5813 10.1047C12.3049 10.772 11.8997 11.3783 11.389 11.8891C10.8783 12.3998 10.272 12.8049 9.60468 13.0813C8.93739 13.3577 8.22219 13.5 7.49992 13.5C6.77765 13.5 6.06245 13.3577 5.39516 13.0813C4.72787 12.8049 4.12156 12.3998 3.61083 11.8891C3.10011 11.3783 2.69498 10.772 2.41858 10.1047C2.14218 9.43745 1.99992 8.72225 1.99992 7.99998C1.99992 6.54129 2.57938 5.14234 3.61083 4.11089C4.64228 3.07944 6.04123 2.49998 7.49992 2.49998C8.95861 2.49998 10.3576 3.07944 11.389 4.11089C12.4205 5.14234 12.9999 6.54129 12.9999 7.99998Z"
+                fill="#6C757D"
+              />
+            </g>
+            <defs>
+              <clipPath id="clip0_1_2386">
+                <rect
+                  width="16"
+                  height="16"
+                  fill="white"
+                  transform="translate(1 1.5)"
+                />
+              </clipPath>
+            </defs>
+          </svg>
+        </div>
+        <div class="absolute right-2">
+          <svg
+            width="20px"
+            height="20px"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <g id="style=fill">
+              <g id="filter-circle">
+                <path
+                  id="vector (Stroke)"
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M7.75 17.5C7.75 17.0858 7.41421 16.75 7 16.75H2C1.58579 16.75 1.25 17.0858 1.25 17.5C1.25 17.9142 1.58579 18.25 2 18.25H7C7.41421 18.25 7.75 17.9142 7.75 17.5Z"
+                  fill="#000000"
+                />
+                <path
+                  id="vector (Stroke)_2"
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M16.25 6.5C16.25 6.08579 16.5858 5.75 17 5.75H22C22.4142 5.75 22.75 6.08579 22.75 6.5C22.75 6.91421 22.4142 7.25 22 7.25H17C16.5858 7.25 16.25 6.91421 16.25 6.5Z"
+                  fill="#000000"
+                />
+                <path
+                  id="vector (Stroke)_3"
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M22.75 17.5C22.75 17.0858 22.4142 16.75 22 16.75H13C12.5858 16.75 12.25 17.0858 12.25 17.5C12.25 17.9142 12.5858 18.25 13 18.25H22C22.4142 18.25 22.75 17.9142 22.75 17.5Z"
+                  fill="#000000"
+                />
+                <path
+                  id="vector (Stroke)_4"
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M1.25 6.5C1.25 6.08579 1.58579 5.75 2 5.75H11C11.4142 5.75 11.75 6.08579 11.75 6.5C11.75 6.91421 11.4142 7.25 11 7.25H2C1.58579 7.25 1.25 6.91421 1.25 6.5Z"
+                  fill="#000000"
+                />
+                <path
+                  id="vector (Stroke)_5"
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M13.75 17.3999C13.75 15.3288 12.0711 13.6499 10 13.6499C7.92893 13.6499 6.25 15.3288 6.25 17.3999C6.25 19.471 7.92893 21.1499 10 21.1499C12.0711 21.1499 13.75 19.471 13.75 17.3999Z"
+                  fill="#000000"
+                />
+                <path
+                  id="vector (Stroke)_6"
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M10.25 6.3999C10.25 4.32883 11.9289 2.6499 14 2.6499C16.0711 2.6499 17.75 4.32883 17.75 6.3999C17.75 8.47097 16.0711 10.1499 14 10.1499C11.9289 10.1499 10.25 8.47097 10.25 6.3999Z"
+                  fill="#000000"
+                />
+              </g>
+            </g>
+          </svg>
+        </div>
+      </div>
+      <div class="w-[90%] flex justify-between items-center py-2">
+        <span class="text-xl font-semibold text-App-text-black leading-6"
+          >Results for <span id="searched-keyword" class="font-bold"></span
+        ></span>
+        <span
+          id="results-found"
+          class="class="
+          text-base
+          font-semibold
+          text-App-text-gray
+          leading-5
+          >0 found</span
+        >
+      </div>
+      <div
+        id="search-result-section"
+        class="flex flex-col justify-between items-center mt-20 pb-10 overflow-y-scroll"
+      ></div>
+    </div>
+    <script type="module" src="./index.js"></script>
+  </body>
+</html>
