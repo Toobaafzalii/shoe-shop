@@ -3,18 +3,30 @@ import { navigateTo } from "../utils/navigation";
 import Swiper from "swiper/bundle";
 import "swiper/css/bundle";
 
+const paginationSection = document.getElementById("onboarding-pagination");
+const onBoardingBtn = document.getElementById("onboarding-btn");
+const swipperWrapper = document.getElementById("swiper-wrapper");
+
 const swiper = new Swiper(".swiper", {
   // Optional parameters
   cssMode: true,
-
   mousewheel: true,
+  observer: true,
+  observeParents: true,
+  on: {
+    slideChange: (swiper) => {
+      renderPagination();
+      if (swiper.activeIndex + 1 == onBoardingData.length) {
+        onBoardingBtn.textContent = "Get Started";
+      } else {
+        onBoardingBtn.textContent = "Next";
+      }
+    },
+  },
 });
 
 // const onboardingImg = document.getElementById("onboarding-img");
 // const onBoardingText = document.getElementById("onboarding-txt");
-const paginationSection = document.getElementById("onboarding-pagination");
-const onBoardingBtn = document.getElementById("onboarding-btn");
-const swipperWrapper = document.getElementById("swiper-wrapper");
 
 const onBoardingData = [
   {
@@ -53,8 +65,7 @@ function renderPage() {
     text.className =
       "text-[32px] font-semibold leading-10 flex justify-center items-center text-center mt-8 px-6";
     img.src = item.imgSrc;
-    img.className = "w-full h-[500px]";
-
+    img.className = "w-full h-[560px]";
     div.className = "swiper-slide";
     div.append(img);
     div.append(text);
@@ -62,24 +73,17 @@ function renderPage() {
   }
 }
 addEventListener("DOMContentLoaded", () => {
-  renderPagination();
+  renderPagination(0);
   renderPage();
-  swiper.on("slideChange", function (e) {
-    renderPagination();
-    if (swiper.activeIndex + 1 == onBoardingData.length) {
-      onBoardingBtn.textContent = "Get Started";
-    } else {
-      onBoardingBtn.textContent = "Next";
-    }
-  });
+  swiper.update();
 });
 
 onBoardingBtn.addEventListener("click", () => changeOnboardingData());
 
 function changeOnboardingData() {
-  swiper.slideNext();
   if (swiper.activeIndex + 1 === onBoardingData.length) {
     navigateTo("logIn");
     return;
   }
+  swiper.slideNext();
 }
